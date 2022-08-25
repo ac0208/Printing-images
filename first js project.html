@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<button onclick="getPosts()">Print</button>
+<p id="print"></p>
+<p id="imageprint"></p>
+
+<script>
+        const getPosts=()=>{
+            let url="https://reqres.in/api/users";
+            //We have predefined method in Frontend only named fetch
+            fetch(url).then((response)=>{
+			return response.json();
+			}).then((date)=>{
+			date.data.map((value)=>{
+			document.getElementById("print").innerHTML+=`<img src=${value.avatar}>`+"<p>"+value.first_name+" "+value.last_name+"</p>";
+			
+			})
+			});
+			};
+            </script>
+</body>
+</html>
